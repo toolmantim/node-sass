@@ -29,7 +29,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | b
 ENV NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 RUN cp /etc/pki/tls/certs/ca-bundle.crt /etc/pki/tls/certs/ca-bundle.crt.bak
 RUN wget -O /etc/pki/tls/certs/ca-bundle.crt http://curl.haxx.se/ca/cacert.pem
-RUN mkdir -p ~/.nvm/versions/
+RUN mkdir -p ~/.nvm/versions/io.js ~/.nvm/versions/node
 
 ### Add the code ###
 
