@@ -1,0 +1,4 @@
+#!/bin/bash
+
+RUN rm -rf vendor
+RUN rm -rf node_modules

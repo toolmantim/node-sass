@@ -36,6 +36,3 @@ ENV PATH /opt/centos/devtoolset-1.0/root/usr/bin:$PATH
 
 ADD . /node-sass/
 WORKDIR /node-sass
-
-# Nuke any previous builds
-RUN rm -rf vendor/*
