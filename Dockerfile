@@ -18,8 +18,8 @@ gpgcheck=0\n" >\
 /etc/yum.repos.d/devtools64.repo
 
 RUN yum install -y devtoolset-2-{gcc,gcc-c++,binutils} git python26
-RUN mv /usr/bin/python /usr/bin/python_ && mv /usr/bin/python26 /usr/bin/python
 RUN yum install -y glibc-devel.i386 devtoolset-2-libstdc++-devel.i386
+RUN mv /usr/bin/python /usr/bin/python_ && mv /usr/bin/python26 /usr/bin/python
 
 ENV PATH /opt/rh/devtoolset-2/root/usr/bin:$PATH
 ENV PATH /opt/centos/devtoolset-1.0/root/usr/bin:$PATH
