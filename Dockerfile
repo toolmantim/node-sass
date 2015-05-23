@@ -30,6 +30,7 @@ ENV NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 RUN cp /etc/pki/tls/certs/ca-bundle.crt /etc/pki/tls/certs/ca-bundle.crt.bak
 RUN wget -O /etc/pki/tls/certs/ca-bundle.crt http://curl.haxx.se/ca/cacert.pem
 RUN mkdir -p ~/.nvm/versions/io.js ~/.nvm/versions/node
+RUN source ~/.nvm/nvm.sh && nvm install v0 && npm install
 
 ### Add the code ###
 
