@@ -7,14 +7,16 @@ RUN yum install -y curl wget make file which \
 name=CentOS 5 devtools 32bit\n\
 baseurl=http://people.centos.org/tru/devtools-2/5/i386/RPMS\n\
 gpgcheck=0\n" > \
-    /etc/yum.repos.d/devtools32.repo \
-    && printf \
+    /etc/yum.repos.d/devtools32.repo
+
+RUN printf \
 "[devtools-64]\n\
 name=CentOS 5 devtools 64bit\n\
 baseurl=http://people.centos.org/tru/devtools-2/5/x86_64/RPMS\n\
 gpgcheck=0\n" >\
-/etc/yum.repos.d/devtools64.repo \
-    && yum install -y devtoolset-2-{gcc,gcc-c++,binutils} git python26 glibc-devel.i386 devtoolset-2-libstdc++-devel.i386 \
+/etc/yum.repos.d/devtools64.repo
+
+RUN yum install -y devtoolset-2-{gcc,gcc-c++,binutils} git python26 glibc-devel.i386 devtoolset-2-libstdc++-devel.i386 \
     && mv /usr/bin/python /usr/bin/python_ \
     && mv /usr/bin/python26 /usr/bin/python
 
