@@ -12,4 +12,6 @@ tar -C ~/.nvm/versions/io.js -xvf iojs-v2.0.0-linux-x86.tar.gz
 
 ln -sf ~/.nvm/versions/io.js/iojs-v2.0.0-linux-ia32/bin/{npm,node} /bin
 
+npm install
+
 node scripts/build.js -f

@@ -32,9 +32,9 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | b
     && nvm install iojs-v1 \
     && nvm install iojs-v1.0 \
     && nvm install iojs-v2 \
-    && nvm install v0 \
     && nvm install v0.10 \
-    && npm install
+    && nvm install v0
+    # ^ latest version goes last for npm install below
 
 ### Add the code ###
 
@@ -43,3 +43,6 @@ WORKDIR /node-sass
 
 # Nuke any previous builds
 RUN rm -rf vendor/*
+
+# Pre-install the node modules to speed up other builds
+RUN npm install

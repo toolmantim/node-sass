@@ -12,4 +12,6 @@ tar -C ~/.nvm/versions/node -xvf node-v0.12.2-linux-x86.tar.gz
 
 ln -sf ~/.nvm/versions/node/node-v0.12.2-linux-x86/bin/{npm,node} /bin
 
+npm install
+
 node scripts/build.js -f
