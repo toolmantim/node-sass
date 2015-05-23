@@ -1,8 +1,10 @@
 FROM centos:5
 
-RUN yum install -y curl wget make file which \
-    && rpm -ivh http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm \
-    && printf \
+RUN yum install -y curl wget make file which
+
+RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+
+RUN printf \
 "[devtools-32]\n\
 name=CentOS 5 devtools 32bit\n\
 baseurl=http://people.centos.org/tru/devtools-2/5/i386/RPMS\n\
