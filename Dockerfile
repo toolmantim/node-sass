@@ -28,6 +28,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | b
 ENV NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 RUN cp /etc/pki/tls/certs/ca-bundle.crt /etc/pki/tls/certs/ca-bundle.crt.bak
 RUN wget -O /etc/pki/tls/certs/ca-bundle.crt http://curl.haxx.se/ca/cacert.pem
+RUN mkdir -p ~/.nvm/versions/io.js ~/.nvm/versions/node
 
 RUN mv /usr/bin/python /usr/bin/python_ && mv /usr/bin/python26 /usr/bin/python
 ENV PATH /opt/centos/devtoolset-1.0/root/usr/bin:$PATH
