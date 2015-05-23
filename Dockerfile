@@ -27,14 +27,7 @@ ENV NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash \
     && cp /etc/pki/tls/certs/ca-bundle.crt /etc/pki/tls/certs/ca-bundle.crt.bak \
     && wget -O /etc/pki/tls/certs/ca-bundle.crt http://curl.haxx.se/ca/cacert.pem \
-    && mkdir -p ~/.nvm/versions/io.js ~/.nvm/versions/node \
-    && source ~/.nvm/nvm.sh \
-    && nvm install iojs-v1 \
-    && nvm install iojs-v1.0 \
-    && nvm install iojs-v2 \
-    && nvm install v0.10 \
-    && nvm install v0
-    # ^ latest version goes last for npm install below
+    && mkdir -p ~/.nvm/versions/io.js ~/.nvm/versions/node
 
 ### Add the code ###
 
@@ -43,6 +36,3 @@ WORKDIR /node-sass
 
 # Nuke any previous builds
 RUN rm -rf vendor/*
-
-# Pre-install the node modules to speed up other builds
-RUN npm install
