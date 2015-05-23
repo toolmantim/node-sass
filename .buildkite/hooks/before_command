@@ -1,4 +1,6 @@
 #!/bin/bash
 
-RUN rm -rf vendor
-RUN rm -rf node_modules
+set -e
+
+rm -rf vendor
+rm -rf node_modules
