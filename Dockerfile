@@ -18,6 +18,7 @@ gpgcheck=0\n" >\
 /etc/yum.repos.d/devtools64.repo
 
 RUN yum install -y devtoolset-2-{gcc,gcc-c++,binutils} git python26
+RUN mv /usr/bin/python /usr/bin/python_ && mv /usr/bin/python26 /usr/bin/python
 RUN yum install -y glibc-devel.i386 devtoolset-2-libstdc++-devel.i386
 
 ENV PATH /opt/rh/devtoolset-2/root/usr/bin:$PATH
@@ -30,13 +31,11 @@ ENV NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 RUN cp /etc/pki/tls/certs/ca-bundle.crt /etc/pki/tls/certs/ca-bundle.crt.bak
 RUN wget -O /etc/pki/tls/certs/ca-bundle.crt http://curl.haxx.se/ca/cacert.pem
 RUN mkdir -p ~/.nvm/versions/io.js ~/.nvm/versions/node
-RUN source ~/.nvm/nvm.sh && nvm install v0 && npm install
 
 ### Add the code ###
 
 ADD . /node-sass/
-
 WORKDIR /node-sass
 
-# What's this?
-RUN mv /usr/bin/python /usr/bin/python_ && mv /usr/bin/python26 /usr/bin/python
+# Initial install
+RUN source ~/.nvm/nvm.sh && nvm install v0 && npm install
